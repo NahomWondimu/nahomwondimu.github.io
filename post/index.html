@@ -380,16 +380,16 @@ footer { border-top: 1px solid var(--border); padding: 36px 0; margin-top: 0; }
 <body>
 
 <nav>
-  <a href="index.html" class="nav-logo">NW<span class="nav-logo-sep">//</span>sec</a>
+  <a href="/" class="nav-logo">NW<span class="nav-logo-sep">//</span>sec</a>
   <ul class="nav-links">
-    <li><a href="index.html">Home</a></li>
-    <li><a href="writeups.html" class="active">Writeups</a></li>
-    <li><a href="feed.html">Intel Feed</a></li>
-    <li><a href="index.html#about">About</a></li>
+    <li><a href="/">Home</a></li>
+    <li><a href="/writeups" class="active">Writeups</a></li>
+    <li><a href="/feed">Intel Feed</a></li>
+    <li><a href="/#about">About</a></li>
   </ul>
   <div class="nav-cta">
     <a href="https://github.com" class="btn-ghost" target="_blank">GitHub ↗</a>
-    <a href="index.html#contact" class="btn-primary">Contact</a>
+    <a href="/#contact" class="btn-primary">Contact</a>
   </div>
 </nav>
 
@@ -419,10 +419,10 @@ footer { border-top: 1px solid var(--border); padding: 36px 0; margin-top: 0; }
     <div class="footer-inner">
       <span style="font-family:var(--mono);font-size:12px;color:var(--muted)">© 2026 Nahom Wondimu</span>
       <div class="footer-links">
-        <a href="index.html">Home</a>
-        <a href="writeups.html">Writeups</a>
-        <a href="feed.html">Intel Feed</a>
-        <a href="index.html#contact">Contact</a>
+        <a href="/">Home</a>
+        <a href="/writeups">Writeups</a>
+        <a href="/feed">Intel Feed</a>
+        <a href="/#contact">Contact</a>
       </div>
     </div>
   </div>
@@ -502,7 +502,7 @@ function renderHeader(meta) {
   document.getElementById('post-header').innerHTML = `
     <div class="container">
       <div class="post-header-eyebrow">
-        <a href="writeups.html" class="back-link">← Writeups</a>
+        <a href="/writeups" class="back-link">← Writeups</a>
         <span class="post-tag ${cls}">${cat}</span>
         ${tags.map(t => `<span class="post-tag" style="color:var(--muted);border-color:var(--border);background:none">${t}</span>`).join('')}
       </div>
@@ -541,7 +541,7 @@ async function loadPost() {
   }
 
   try {
-    const res = await fetch(`../../posts/${slug}.md`);
+    const res = await fetch(`/posts/${slug}.md`);
     if (!res.ok) throw new Error(`${res.status} ${res.statusText}`);
     const raw = await res.text();
 
@@ -558,7 +558,7 @@ async function loadPost() {
   } catch (err) {
     document.getElementById('post-header').innerHTML = `
       <div class="container">
-        <div class="post-header-eyebrow"><a href="writeups.html" class="back-link">← Writeups</a></div>
+        <div class="post-header-eyebrow"><a href="/writeups" class="back-link">← Writeups</a></div>
         <h1 style="color:var(--muted)">Post not found</h1>
         <div class="post-header-meta"><span>Could not load <code style="font-family:var(--mono);color:var(--accent)">${slug}.md</code> — ${err.message}</span></div>
       </div>

@@ -544,16 +544,16 @@ footer {
 <body>
 
 <nav>
-  <a href="index.html" class="nav-logo">NW<span class="nav-logo-sep">//</span>sec</a>
+  <a href="/" class="nav-logo">NW<span class="nav-logo-sep">//</span>sec</a>
   <ul class="nav-links">
-    <li><a href="index.html">Home</a></li>
-    <li><a href="writeups.html" class="active">Writeups</a></li>
-    <li><a href="feed.html">Intel Feed</a></li>
-    <li><a href="index.html#about">About</a></li>
+    <li><a href="/">Home</a></li>
+    <li><a href="/writeups" class="active">Writeups</a></li>
+    <li><a href="/feed">Intel Feed</a></li>
+    <li><a href="/#about">About</a></li>
   </ul>
   <div class="nav-cta">
     <a href="https://github.com" class="btn-ghost" target="_blank">GitHub ↗</a>
-    <a href="index.html#contact" class="btn-primary">Contact</a>
+    <a href="/#contact" class="btn-primary">Contact</a>
   </div>
   <button class="nav-mobile-toggle" onclick="toggleMobileNav()">☰</button>
 </nav>
@@ -657,10 +657,10 @@ footer {
     <div class="footer-inner">
       <span style="font-family:var(--mono);font-size:12px;color:var(--muted)">© 2026 Nahom Wondimu</span>
       <div class="footer-links">
-        <a href="index.html">Home</a>
-        <a href="writeups.html">Writeups</a>
-        <a href="feed.html">Intel Feed</a>
-        <a href="index.html#contact">Contact</a>
+        <a href="/">Home</a>
+        <a href="/writeups">Writeups</a>
+        <a href="/feed">Intel Feed</a>
+        <a href="/#contact">Contact</a>
       </div>
     </div>
   </div>
@@ -682,33 +682,7 @@ function toggleMobileNav() {
     links.style.background = 'rgba(8,12,16,0.97)';
     links.style.padding = '20px';
     links.style.borderBottom = '1px solid rgba(56,189,248,0.08)';
-    styles.zIndex = '499';
-  }
-}
-
-</script>
-<script>
-  function filterPosts(btn, cat) {
-    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
-
-    const featured = document.querySelector('.post-featured');
-    const rows = document.querySelectorAll('.post-row');
-
-    if (cat === 'all') {
-      featured.style.display = '';
-      rows.forEach(r => r.style.display = '');
-    } else {
-      featured.style.display = featured.dataset.category === cat ? '' : 'none';
-      rows.forEach(r => {
-        r.style.display = r.dataset.category === cat ? '' : 'none';
-      });
-    }
-  }
-</script>
-</body>
-</html>
-links.style.zIndex = '499';
+    links.style.zIndex = '499';
   }
 }
 
@@ -732,12 +706,11 @@ const tagClass = { vuln: 'tag-vuln', ctf: 'tag-ctf', intel: 'tag-intel', re: 'ta
 function renderFeaturedPost() {
   const featured = postsDB.find(p => p.featured);
   if (!featured) return;
-  
+
   const catClass = tagClass[featured.category] || 'tag-vuln';
-  const tagHTML = featured.tags.map(t => `<span class="post-tag" style="color:var(--muted);border-color:var(--border);background:none">${t}</span>`).join('');
-  
+
   const html = `
-    <a href="post.html?slug=${featured.slug}" class="post-featured" data-category="${featured.category}">
+    <a href="/post?slug=${featured.slug}" class="post-featured" data-category="${featured.category}">
       <div class="post-featured-eyebrow">
         <span class="post-tag ${catClass}">${featured.category.charAt(0).toUpperCase() + featured.category.slice(1)}</span>
         <span class="post-date">${featured.date}</span>
@@ -761,24 +734,24 @@ function renderPostList() {
   let html = '';
   let currentYear = null;
   const sortedPosts = [...postsDB].filter(p => !p.featured).sort((a, b) => new Date(b.date) - new Date(a.date));
-  
+
   sortedPosts.forEach(post => {
     const year = post.date.split('-')[0];
     if (year !== currentYear) {
       currentYear = year;
       html += `<span class="list-separator">${year}</span>`;
     }
-    
+
     const catClass = tagClass[post.category] || 'tag-vuln';
     html += `
-      <a href="post.html?slug=${post.slug}" class="post-row" data-category="${post.category}">
+      <a href="/post?slug=${post.slug}" class="post-row" data-category="${post.category}">
         <span class="post-row-date">${post.date}</span>
         <span class="post-row-title">${post.title}</span>
         <span class="post-tag ${catClass}">${post.category.charAt(0).toUpperCase() + post.category.slice(1)}</span>
       </a>
     `;
   });
-  
+
   document.getElementById('post-list-container').innerHTML = html;
 }
 
@@ -798,9 +771,7 @@ function filterPosts(btn, cat) {
     rows.forEach(r => {
       r.style.display = r.dataset.category === cat ? '' : 'none';
     });
-    // Hide year separators if no posts visible for that year
     document.querySelectorAll('.list-separator').forEach(sep => {
-      const nextPost = sep.nextElementSibling;
       let hasVisible = false;
       let el = sep.nextElementSibling;
       while (el && !el.classList.contains('list-separator')) {
@@ -815,8 +786,10 @@ function filterPosts(btn, cat) {
   }
 }
 
-// Initialize
 document.addEventListener('DOMContentLoaded', () => {
   renderFeaturedPost();
   renderPostList();
 });
+</script>
+</body>
+</html>

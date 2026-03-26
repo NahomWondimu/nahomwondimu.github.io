@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Alex Kim — Security Developer</title>
+<title>Nahom Wondimu — Security Developer</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,300;0,400;0,500;1,300&family=IBM+Plex+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
 <style>
@@ -684,16 +684,16 @@ footer {
 <body>
 
 <nav>
-  <a href="index.html" class="nav-logo">AK<span class="nav-logo-sep">//</span>sec</a>
+  <a href="/" class="nav-logo">NW<span class="nav-logo-sep">//</span>sec</a>
   <ul class="nav-links">
-    <li><a href="index.html" class="active">Home</a></li>
-    <li><a href="writeups.html">Writeups</a></li>
-    <li><a href="feed.html">Intel Feed</a></li>
-    <li><a href="index.html#about">About</a></li>
+    <li><a href="/" class="active">Home</a></li>
+    <li><a href="/writeups">Writeups</a></li>
+    <li><a href="/feed">Intel Feed</a></li>
+    <li><a href="/#about">About</a></li>
   </ul>
   <div class="nav-cta">
     <a href="https://github.com" class="btn-ghost" target="_blank">GitHub ↗</a>
-    <a href="index.html#contact" class="btn-primary">Contact</a>
+    <a href="/#contact" class="btn-primary">Contact</a>
   </div>
   <button class="nav-mobile-toggle" onclick="toggleMobileNav()">☰</button>
 </nav>
@@ -707,8 +707,8 @@ footer {
         <h1>Finding the holes<br>before <strong>they do</strong></h1>
         <p class="hero-sub">I build security tooling, conduct research, and write about what I find. Offensive mindset, defensive output.</p>
         <div class="hero-actions">
-          <a href="index.html#projects" class="btn-large">View projects</a>
-          <a href="writeups.html" class="btn-large-outline">Read writeups</a>
+          <a href="/#projects" class="btn-large">View projects</a>
+          <a href="/writeups" class="btn-large-outline">Read writeups</a>
         </div>
       </div>
 
@@ -719,14 +719,14 @@ footer {
             <div class="term-dot"></div>
             <div class="term-dot"></div>
           </div>
-          <span class="term-title">alex@sec ~ zsh</span>
+          <span class="term-title">nahom@sec ~ zsh</span>
         </div>
         <div class="terminal-body">
           <div class="term-line">
             <span class="term-prompt">❯</span>
             <span class="term-cmd">whoami</span>
           </div>
-          <div class="term-out hi">alex_kim</div>
+          <div class="term-out hi">nahom_wondimu</div>
           <br>
           <div class="term-line">
             <span class="term-prompt">❯</span>
@@ -887,7 +887,7 @@ footer {
         <p>I've done work across <strong>web application security, binary exploitation, cloud misconfigurations, and threat intelligence</strong>. I'm comfortable operating at both the exploit-dev layer and the infrastructure layer — which tends to be where the interesting bugs live.</p>
         <p>When I'm not breaking things professionally I play CTFs, contribute to open source tooling, and maintain an Intel feed covering the threat landscape I care about.</p>
         <blockquote>
-          <p>"Alex found a critical auth flaw in our product in 72 hours that our internal team had missed for a year. Methodical, thorough, and communicates findings clearly."</p>
+          <p>"Nahom found a critical auth flaw in our product in 72 hours that our internal team had missed for a year. Methodical, thorough, and communicates findings clearly."</p>
           <footer>— Head of Security, Fortune 500 client</footer>
         </blockquote>
       </div>
@@ -937,13 +937,13 @@ footer {
   <div class="container">
     <div class="footer-inner">
       <div class="footer-left">
-        <span style="font-family:var(--mono);font-size:12px;color:var(--subtle)">© 2026 Alex Kim</span>
+        <span style="font-family:var(--mono);font-size:12px;color:var(--subtle)">© 2026 Nahom Wondimu</span>
       </div>
       <div class="footer-links">
-        <a href="index.html">Home</a>
-        <a href="writeups.html">Writeups</a>
-        <a href="feed.html">Intel Feed</a>
-        <a href="index.html#contact">Contact</a>
+        <a href="/">Home</a>
+        <a href="/writeups">Writeups</a>
+        <a href="/feed">Intel Feed</a>
+        <a href="/#contact">Contact</a>
       </div>
     </div>
   </div>
@@ -972,4 +972,11 @@ function toggleMobileNav() {
 </script>
 <script>
   function switchTab(btn, id) {
-    document.querySelectorAll('.tab').forEach(t => t.classList
+    document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+    btn.classList.add('active');
+    document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+    document.getElementById(`tab-${id}`).classList.add('active');
+  }
+</script>
+</body>
+</html>
