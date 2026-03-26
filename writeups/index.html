@@ -710,7 +710,7 @@ function renderFeaturedPost() {
   const catClass = tagClass[featured.category] || 'tag-vuln';
 
   const html = `
-    <a href="/post?slug=${featured.slug}" class="post-featured" data-category="${featured.category}">
+    <a href="/post/?slug=${featured.slug}" class="post-featured" data-category="${featured.category}">
       <div class="post-featured-eyebrow">
         <span class="post-tag ${catClass}">${featured.category.charAt(0).toUpperCase() + featured.category.slice(1)}</span>
         <span class="post-date">${featured.date}</span>
@@ -744,7 +744,7 @@ function renderPostList() {
 
     const catClass = tagClass[post.category] || 'tag-vuln';
     html += `
-      <a href="/post?slug=${post.slug}" class="post-row" data-category="${post.category}">
+      <a href="/post/?slug=${post.slug}" class="post-row" data-category="${post.category}">
         <span class="post-row-date">${post.date}</span>
         <span class="post-row-title">${post.title}</span>
         <span class="post-tag ${catClass}">${post.category.charAt(0).toUpperCase() + post.category.slice(1)}</span>
