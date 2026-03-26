@@ -535,7 +535,7 @@ async function loadProject() {
   }
 
   try {
-    const res = await fetch(`/projects/${slug}.md`);
+    const res = await fetch(`../projects/${slug}.md`);
     if (!res.ok) throw new Error(`${res.status} ${res.statusText}`);
     const raw = await res.text();
 

@@ -541,7 +541,7 @@ async function loadPost() {
   }
 
   try {
-    const res = await fetch(`/posts/${slug}.md`);
+    const res = await fetch(`../posts/${slug}.md`);
     if (!res.ok) throw new Error(`${res.status} ${res.statusText}`);
     const raw = await res.text();
 
