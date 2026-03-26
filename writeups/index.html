@@ -523,6 +523,21 @@ footer {
   }
   .rss-link:hover { color: var(--accent); }
 
+  /* ── MOBILE ── */
+  @media (max-width: 768px) {
+    .writeups-layout {
+      grid-template-columns: 1fr;
+      gap: 40px;
+      padding: 40px 0 60px;
+    }
+    .sidebar { position: static; }
+    .post-row {
+      grid-template-columns: 1fr;
+      gap: 6px;
+    }
+    .post-row-tags { display: none; }
+  }
+
   /* ── NEW POST CTA ── */
   .new-post-hint {
     border: 1px dashed var(--border-hover);

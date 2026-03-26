@@ -456,6 +456,17 @@ footer {
   }
   .proxy-note code { color: var(--accent); }
 
+  /* ── MOBILE ── */
+  @media (max-width: 768px) {
+    .feed-layout {
+      grid-template-columns: 1fr;
+      gap: 40px;
+      padding: 40px 0 60px;
+    }
+    .sidebar { position: static; }
+    .feed-item-date { margin-left: 0; }
+  }
+
 </style>
 </head>
 <body>

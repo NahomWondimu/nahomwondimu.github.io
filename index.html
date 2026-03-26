@@ -679,6 +679,36 @@ footer {
     background: var(--bg2);
   }
   .contact-link:hover { border-color: var(--accent-border); color: var(--accent); }
+
+  /* ── MOBILE ── */
+  @media (max-width: 768px) {
+    #hero { padding: 100px 0 60px; }
+
+    .hero-grid {
+      grid-template-columns: 1fr;
+      gap: 40px;
+    }
+
+    .stat-strip {
+      grid-template-columns: 1fr 1fr;
+    }
+    .stat { padding: 20px; border-right: none; border-bottom: 1px solid var(--border); }
+    .stat:nth-child(odd) { border-right: 1px solid var(--border); }
+    .stat:last-child { border-bottom: none; }
+    .stat:nth-last-child(2):nth-child(odd) { border-bottom: none; }
+
+    #projects { padding: 60px 0; }
+    .section-header { flex-direction: column; align-items: flex-start; gap: 16px; }
+    .tab-panel.active { grid-template-columns: 1fr; }
+
+    #about { padding: 60px 0; }
+    .about-grid {
+      grid-template-columns: 1fr;
+      gap: 40px;
+    }
+
+    #contact { padding: 60px 0; }
+  }
 </style>
 </head>
 <body>
